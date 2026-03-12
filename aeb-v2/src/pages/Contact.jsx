@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { FadeIn } from "../../components/Animations";
-import { Icons } from "../../components/Icons";
-import PageHead from "../../components/PageHead";
+import { FadeIn } from "../components/Animations";
+import { Icons } from "../components/Icons";
+import PageHead from "../components/PageHead";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", business: "", message: "" });
@@ -23,7 +23,7 @@ export default function Contact() {
       });
       if (res.ok) { setStatus("success"); setForm({ name: "", email: "", phone: "", business: "", message: "" }); }
       else setStatus("error");
-    } catch { setStatus("error"); }
+    } catch (err) { setStatus("error"); }
   };
 
   const inputStyle = {
