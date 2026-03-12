@@ -32,7 +32,7 @@ export default function Nav() {
   ];
 
   const isHome = location.pathname === "/";
-  const contactHref = isHome ? "#contact" : "/#contact";
+  const contactHref = "/contact";
 
   return (
     <>
@@ -53,7 +53,7 @@ export default function Nav() {
             <Link key={s.path} to={s.path} style={{ fontFamily: "'Sora', sans-serif", fontSize: 20, fontWeight: 300, color: "rgba(255,255,255,0.5)" }}>{s.label}</Link>
           ))}
           <Link to="/blog" style={{ fontFamily: "'Sora', sans-serif", fontSize: 24, fontWeight: 300, color: "rgba(255,255,255,0.7)" }}>Blog</Link>
-          <a href={contactHref} className="cta-primary" style={{ marginTop: 16 }}>Book a Call</a>
+          <Link to="/contact" className="cta-primary" style={{ marginTop: 16 }}>Book a Call</Link>
         </div>
       )}
 
@@ -123,7 +123,7 @@ export default function Nav() {
             {isHome && <a href="#process" style={{ color: "rgba(255,255,255,0.65)", fontSize: 13, fontWeight: 500, fontFamily: "'DM Sans', sans-serif" }}>Process</a>}
             <Link to="/blog" style={{ color: "rgba(255,255,255,0.65)", fontSize: 13, fontWeight: 500, fontFamily: "'DM Sans', sans-serif" }}>Blog</Link>
 
-            <a href={contactHref} className="cta-primary" style={{ padding: "10px 26px", fontSize: 13, boxShadow: "none" }}>Book a Call</a>
+            <Link to="/contact" className="cta-primary" style={{ padding: "10px 26px", fontSize: 13, boxShadow: "none" }}>Book a Call</Link>
           </div>
 
           <button className="mobile-only" onClick={() => setMobileMenu(true)} aria-label="Open menu" style={{

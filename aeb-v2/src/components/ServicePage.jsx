@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { FadeIn } from "./Animations";
 import { Icons } from "./Icons";
 import PageHead from "./PageHead";
-import ContactForm from "./ContactForm";
 
 export default function ServicePage({ seo, hero, problems, benefits, process, otherServices }) {
   return (
@@ -57,9 +56,9 @@ export default function ServicePage({ seo, hero, problems, benefits, process, ot
 
           <FadeIn delay={0.55}>
             <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="/#contact" className="cta-primary" style={{ fontSize: 16, padding: "20px 44px" }}>
+              <Link to="/contact" className="cta-primary" style={{ fontSize: 16, padding: "20px 44px" }}>
                 Get Your Free Audit {Icons.arrowRight}
-              </a>
+              </Link>
               <Link to="/" className="cta-ghost" style={{ fontSize: 16, padding: "20px 44px" }}>
                 Back to Home
               </Link>
@@ -241,9 +240,9 @@ export default function ServicePage({ seo, hero, problems, benefits, process, ot
 
       <div className="divider" />
 
-      {/* ═══ CTA WITH FORM ═══ */}
+      {/* ═══ CTA ═══ */}
       <section style={{
-        padding: "140px 24px", position: "relative",
+        padding: "140px 24px", textAlign: "center", position: "relative",
       }}>
         <div style={{
           position: "absolute", inset: 0,
@@ -255,22 +254,28 @@ export default function ServicePage({ seo, hero, problems, benefits, process, ot
             <h2 style={{
               fontFamily: "'Sora', sans-serif",
               fontSize: "clamp(30px, 5vw, 56px)",
-              fontWeight: 800, color: "white", textAlign: "center",
-              letterSpacing: "-2px", lineHeight: 1.05, marginBottom: 20,
+              fontWeight: 800, color: "white",
+              letterSpacing: "-2px", lineHeight: 1.05, marginBottom: 24,
             }}>
               Ready to get started?
             </h2>
           </FadeIn>
-          <FadeIn delay={0.15}>
+          <FadeIn delay={0.2}>
             <p style={{
-              fontFamily: "'DM Sans', sans-serif", fontSize: 17,
-              color: "rgba(255,255,255,0.4)", textAlign: "center",
+              fontFamily: "'DM Sans', sans-serif", fontSize: 18,
+              color: "rgba(255,255,255,0.4)",
               maxWidth: 480, margin: "0 auto 48px", lineHeight: 1.75,
             }}>
-              Tell us about your business and we'll come back with a custom plan within 24 hours.
+              Book a free consultation. We'll learn about your business and
+              build a custom plan — no pressure, no obligations.
             </p>
           </FadeIn>
-          <ContactForm />
+          <FadeIn delay={0.35}>
+            <Link to="/contact" className="cta-primary"
+              style={{ fontSize: 18, padding: "24px 52px" }}>
+              Book a Call {Icons.arrowRight}
+            </Link>
+          </FadeIn>
         </div>
       </section>
     </>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { FadeIn, CountUp } from "../components/Animations";
 import { Icons } from "../components/Icons";
 import PageHead from "../components/PageHead";
-import ContactForm from "../components/ContactForm";
 
 export default function Home() {
   const [activeProcess, setActiveProcess] = useState(0);
@@ -42,7 +41,7 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={0.6}>
             <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="#contact" className="cta-primary" style={{ fontSize: 16, padding: "20px 44px" }}>Get Your Free Audit {Icons.arrowRight}</a>
+              <Link to="/contact" className="cta-primary" style={{ fontSize: 16, padding: "20px 44px" }}>Get Your Free Audit {Icons.arrowRight}</Link>
               <a href="#results" className="cta-ghost" style={{ fontSize: 16, padding: "20px 44px" }}>See Our Results</a>
             </div>
           </FadeIn>
@@ -168,19 +167,19 @@ export default function Home() {
           <FadeIn><h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(28px, 4vw, 46px)", fontWeight: 700, color: "white", letterSpacing: "-1.5px", lineHeight: 1.1, marginBottom: 28 }}>Every day you wait, your<br/>competitors get further ahead</h2></FadeIn>
           <FadeIn delay={0.15}><p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: 20 }}>In 2 years, most buyers will check social media before making a call. No presence means no consideration. It already happened in beauty — wellness, trades, clinics, fitness, and real estate are next.</p></FadeIn>
           <FadeIn delay={0.25}><p style={{ fontFamily: "'Sora', sans-serif", fontSize: 20, fontWeight: 600, color: "rgba(255,255,255,0.7)", marginBottom: 48 }}>The question isn't <em>if</em> you need to show up online.<br/>It's how much ground you've already lost.</p></FadeIn>
-          <FadeIn delay={0.35}><a href="#contact" className="cta-primary" style={{ fontSize: 16, padding: "20px 44px" }}>Stop Falling Behind {Icons.arrowRight}</a></FadeIn>
+          <FadeIn delay={0.35}><Link to="/contact" className="cta-primary" style={{ fontSize: 16, padding: "20px 44px" }}>Stop Falling Behind {Icons.arrowRight}</Link></FadeIn>
         </div>
       </section>
 
       <div className="divider" />
 
-      <section id="contact" style={{ padding: "140px 24px", position: "relative" }}>
+      <section style={{ padding: "180px 24px 140px", textAlign: "center", position: "relative" }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 60% at 50% 90%, rgba(99,102,241,0.1), transparent)", pointerEvents: "none" }}/>
         <div style={{ position: "relative", zIndex: 2 }}>
-          <FadeIn><h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(34px, 6vw, 56px)", fontWeight: 800, color: "white", letterSpacing: "-2.5px", lineHeight: 1.05, marginBottom: 20, textAlign: "center" }}>Let's build something{" "}<span style={{ background: "linear-gradient(135deg, #818cf8, #a78bfa, #c084fc)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>custom for you.</span></h2></FadeIn>
-          <FadeIn delay={0.15}><p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, color: "rgba(255,255,255,0.4)", maxWidth: 480, margin: "0 auto 48px", lineHeight: 1.75, textAlign: "center" }}>Tell us about your business and we'll come back with a custom growth plan within 24 hours.</p></FadeIn>
-          <ContactForm />
-          <FadeIn delay={0.3}><div style={{ marginTop: 40, display: "flex", gap: 40, justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
+          <FadeIn><h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(34px, 6vw, 68px)", fontWeight: 800, color: "white", letterSpacing: "-3px", lineHeight: 1.05, marginBottom: 28 }}>Let's build something{" "}<span style={{ background: "linear-gradient(135deg, #818cf8, #a78bfa, #c084fc)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>custom for you.</span></h2></FadeIn>
+          <FadeIn delay={0.2}><p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 18, color: "rgba(255,255,255,0.4)", maxWidth: 520, margin: "0 auto 56px", lineHeight: 1.75 }}>Book a free consultation. We'll learn about your business and build a custom growth plan — no pressure, no obligations.</p></FadeIn>
+          <FadeIn delay={0.4}><Link to="/contact" className="cta-primary" style={{ fontSize: 18, padding: "24px 52px" }}>Book a Call {Icons.arrowRight}</Link></FadeIn>
+          <FadeIn delay={0.55}><div style={{ marginTop: 56, display: "flex", gap: 40, justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
             <a href="mailto:alexb@aeb.media" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.3)", display: "flex", alignItems: "center", gap: 8 }}>{Icons.mail} alexb@aeb.media</a>
             <a href="tel:2242211041" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.3)", display: "flex", alignItems: "center", gap: 8 }}>{Icons.phone} (224) 221-1041</a>
           </div></FadeIn>
