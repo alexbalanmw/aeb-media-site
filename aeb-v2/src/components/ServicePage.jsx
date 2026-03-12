@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FadeIn } from "./Animations";
 import { Icons } from "./Icons";
 import PageHead from "./PageHead";
+import ContactForm from "./ContactForm";
 
 export default function ServicePage({ seo, hero, problems, benefits, process, otherServices }) {
   return (
@@ -240,9 +241,9 @@ export default function ServicePage({ seo, hero, problems, benefits, process, ot
 
       <div className="divider" />
 
-      {/* ═══ CTA ═══ */}
+      {/* ═══ CTA WITH FORM ═══ */}
       <section style={{
-        padding: "140px 24px", textAlign: "center", position: "relative",
+        padding: "140px 24px", position: "relative",
       }}>
         <div style={{
           position: "absolute", inset: 0,
@@ -254,28 +255,22 @@ export default function ServicePage({ seo, hero, problems, benefits, process, ot
             <h2 style={{
               fontFamily: "'Sora', sans-serif",
               fontSize: "clamp(30px, 5vw, 56px)",
-              fontWeight: 800, color: "white",
-              letterSpacing: "-2px", lineHeight: 1.05, marginBottom: 24,
+              fontWeight: 800, color: "white", textAlign: "center",
+              letterSpacing: "-2px", lineHeight: 1.05, marginBottom: 20,
             }}>
               Ready to get started?
             </h2>
           </FadeIn>
-          <FadeIn delay={0.2}>
+          <FadeIn delay={0.15}>
             <p style={{
-              fontFamily: "'DM Sans', sans-serif", fontSize: 18,
-              color: "rgba(255,255,255,0.6)",
+              fontFamily: "'DM Sans', sans-serif", fontSize: 17,
+              color: "rgba(255,255,255,0.4)", textAlign: "center",
               maxWidth: 480, margin: "0 auto 48px", lineHeight: 1.75,
             }}>
-              Book a free 30-minute call. We'll learn about your business and
-              build a custom plan — no pressure, no obligations.
+              Tell us about your business and we'll come back with a custom plan within 24 hours.
             </p>
           </FadeIn>
-          <FadeIn delay={0.35}>
-            <a href="https://calendly.com/alexb-aeb/30min" className="cta-primary"
-              style={{ fontSize: 18, padding: "24px 52px" }}>
-              Book Your Free Call {Icons.arrowRight}
-            </a>
-          </FadeIn>
+          <ContactForm />
         </div>
       </section>
     </>

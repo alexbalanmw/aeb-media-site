@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FadeIn, CountUp } from "../components/Animations";
 import { Icons } from "../components/Icons";
 import PageHead from "../components/PageHead";
+import ContactForm from "../components/ContactForm";
 
 export default function Home() {
   const [activeProcess, setActiveProcess] = useState(0);
@@ -173,15 +174,15 @@ export default function Home() {
 
       <div className="divider" />
 
-      <section id="contact" style={{ padding: "180px 24px 140px", textAlign: "center", position: "relative" }}>
+      <section id="contact" style={{ padding: "140px 24px", position: "relative" }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 60% at 50% 90%, rgba(99,102,241,0.1), transparent)", pointerEvents: "none" }}/>
         <div style={{ position: "relative", zIndex: 2 }}>
-          <FadeIn><h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(34px, 6vw, 68px)", fontWeight: 800, color: "white", letterSpacing: "-3px", lineHeight: 1.05, marginBottom: 28 }}>Let's build something{" "}<span style={{ background: "linear-gradient(135deg, #818cf8, #a78bfa, #c084fc)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>custom for you.</span></h2></FadeIn>
-          <FadeIn delay={0.2}><p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 18, color: "rgba(255,255,255,0.6)", maxWidth: 520, margin: "0 auto 56px", lineHeight: 1.75 }}>Book a free 30-minute call. We'll audit your current presence, learn about your goals, and show you exactly what's possible — no pressure, no obligations.</p></FadeIn>
-          <FadeIn delay={0.4}><a href="https://calendly.com/alexb-aeb/30min" className="cta-primary" style={{ fontSize: 18, padding: "24px 52px" }}>Book Your Free Call {Icons.arrowRight}</a></FadeIn>
-          <FadeIn delay={0.55}><div style={{ marginTop: 56, display: "flex", gap: 40, justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
-            <a href="mailto:info@aeb.media" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.55)", display: "flex", alignItems: "center", gap: 8 }}>{Icons.mail} info@aeb.media</a>
-            <a href="tel:2242211041" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.55)", display: "flex", alignItems: "center", gap: 8 }}>{Icons.phone} (224) 221-1041</a>
+          <FadeIn><h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(34px, 6vw, 56px)", fontWeight: 800, color: "white", letterSpacing: "-2.5px", lineHeight: 1.05, marginBottom: 20, textAlign: "center" }}>Let's build something{" "}<span style={{ background: "linear-gradient(135deg, #818cf8, #a78bfa, #c084fc)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>custom for you.</span></h2></FadeIn>
+          <FadeIn delay={0.15}><p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, color: "rgba(255,255,255,0.4)", maxWidth: 480, margin: "0 auto 48px", lineHeight: 1.75, textAlign: "center" }}>Tell us about your business and we'll come back with a custom growth plan within 24 hours.</p></FadeIn>
+          <ContactForm />
+          <FadeIn delay={0.3}><div style={{ marginTop: 40, display: "flex", gap: 40, justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
+            <a href="mailto:alexb@aeb.media" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.3)", display: "flex", alignItems: "center", gap: 8 }}>{Icons.mail} alexb@aeb.media</a>
+            <a href="tel:2242211041" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.3)", display: "flex", alignItems: "center", gap: 8 }}>{Icons.phone} (224) 221-1041</a>
           </div></FadeIn>
         </div>
       </section>

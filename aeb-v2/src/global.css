@@ -6,6 +6,17 @@ body { background: #050507; overflow-x: hidden; font-family: 'DM Sans', sans-ser
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
+input, select, textarea {
+  font-family: 'DM Sans', sans-serif;
+}
+input::placeholder, textarea::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+select option {
+  background: #121218;
+  color: white;
+}
+
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #050507; }
 ::-webkit-scrollbar-thumb { background: #1a1a2e; border-radius: 3px; }

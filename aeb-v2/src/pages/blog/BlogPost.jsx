@@ -157,7 +157,7 @@ export default function BlogPost() {
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <a href="https://calendly.com/alexb-aeb/30min" className="cta-primary" style={{ fontSize: 16, padding: "18px 40px" }}>
+            <a href="/#contact" className="cta-primary" style={{ fontSize: 16, padding: "18px 40px" }}>
               Book Your Free Call {Icons.arrowRight}
             </a>
           </FadeIn>

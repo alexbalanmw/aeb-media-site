@@ -55,10 +55,10 @@ export default function Footer() {
             color: "rgba(255,255,255,0.5)", letterSpacing: "2px", marginBottom: 16,
           }}>CONTACT</h4>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            <a href="mailto:info@aeb.media" style={{
+            <a href="mailto:alexb@aeb.media" style={{
               fontFamily: "'DM Sans', sans-serif", fontSize: 14,
               color: "rgba(255,255,255,0.55)", display: "flex", alignItems: "center", gap: 8,
-            }}>{Icons.mail} info@aeb.media</a>
+            }}>{Icons.mail} alexb@aeb.media</a>
             <a href="tel:2242211041" style={{
               fontFamily: "'DM Sans', sans-serif", fontSize: 14,
               color: "rgba(255,255,255,0.55)", display: "flex", alignItems: "center", gap: 8,
