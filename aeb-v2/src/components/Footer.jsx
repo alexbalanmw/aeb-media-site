@@ -27,10 +27,10 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 style={{
+          <div style={{
             fontFamily: "'Sora', sans-serif", fontSize: 12, fontWeight: 600,
             color: "rgba(255,255,255,0.5)", letterSpacing: "2px", marginBottom: 16,
-          }}>SERVICES</h4>
+          }}>SERVICES</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <Link to="/services/social-media" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.55)", transition: "color 0.3s" }}>Social Media Content</Link>
             <Link to="/services/google-ads" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.55)" }}>Google Ads</Link>
@@ -40,20 +40,20 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 style={{
+          <div style={{
             fontFamily: "'Sora', sans-serif", fontSize: 12, fontWeight: 600,
             color: "rgba(255,255,255,0.5)", letterSpacing: "2px", marginBottom: 16,
-          }}>BLOG</h4>
+          }}>BLOG</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <Link to="/blog" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.55)" }}>All Articles</Link>
           </div>
         </div>
 
         <div>
-          <h4 style={{
+          <div style={{
             fontFamily: "'Sora', sans-serif", fontSize: 12, fontWeight: 600,
             color: "rgba(255,255,255,0.5)", letterSpacing: "2px", marginBottom: 16,
-          }}>CONTACT</h4>
+          }}>CONTACT</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <a href="mailto:alexb@aeb.media" style={{
               fontFamily: "'DM Sans', sans-serif", fontSize: 14,

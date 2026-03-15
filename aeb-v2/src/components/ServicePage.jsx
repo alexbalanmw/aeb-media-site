@@ -263,7 +263,7 @@ export default function ServicePage({ seo, hero, problems, benefits, process, ot
           <FadeIn delay={0.2}>
             <p style={{
               fontFamily: "'DM Sans', sans-serif", fontSize: 18,
-              color: "rgba(255,255,255,0.4)",
+              color: "rgba(255,255,255,0.55)",
               maxWidth: 480, margin: "0 auto 48px", lineHeight: 1.75,
             }}>
               Book a free consultation. We'll learn about your business and

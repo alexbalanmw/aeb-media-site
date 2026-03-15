@@ -7,6 +7,7 @@ import GoogleAds from "./pages/services/GoogleAds";
 import MetaAds from "./pages/services/MetaAds";
 import AIAutomations from "./pages/services/AIAutomations";
 import Contact from "./pages/Contact";
+import Audit from "./pages/Audit";
 import BlogList from "./pages/blog/BlogList";
 import BlogPost from "./pages/blog/BlogPost";
 import "./global.css";
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/services/meta-ads" element={<MetaAds />} />
           <Route path="/services/ai-automations" element={<AIAutomations />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/audit" element={<Audit />} />
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>

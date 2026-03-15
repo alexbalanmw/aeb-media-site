@@ -37,7 +37,7 @@ export default function ContactForm({ id = "contact" }) {
     onBlur: (e) => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; e.target.style.background = "rgba(255,255,255,0.03)"; e.target.style.boxShadow = "none"; },
   };
 
-  const label = { fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 500, color: "rgba(255,255,255,0.4)", display: "block", marginBottom: 8 };
+  const label = { fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 500, color: "rgba(255,255,255,0.55)", display: "block", marginBottom: 8 };
 
   if (status === "success") {
     return (
@@ -50,7 +50,7 @@ export default function ContactForm({ id = "contact" }) {
             </div>
           </FadeIn>
           <FadeIn delay={0.1}><h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 700, color: "white", letterSpacing: "-1.5px", marginBottom: 16 }}>We got your message!</h2></FadeIn>
-          <FadeIn delay={0.2}><p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 18, color: "rgba(255,255,255,0.4)", maxWidth: 460, margin: "0 auto 40px", lineHeight: 1.7 }}>We'll review your info and get back to you within 24 hours. Talk soon.</p></FadeIn>
+          <FadeIn delay={0.2}><p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 18, color: "rgba(255,255,255,0.55)", maxWidth: 460, margin: "0 auto 40px", lineHeight: 1.7 }}>We'll review your info and get back to you within 24 hours. Talk soon.</p></FadeIn>
           <FadeIn delay={0.3}><button onClick={() => setStatus("idle")} className="cta-ghost" style={{ fontSize: 15, padding: "14px 32px" }}>Send Another Message</button></FadeIn>
         </div>
       </section>
@@ -68,7 +68,7 @@ export default function ContactForm({ id = "contact" }) {
               Let's build something{" "}
               <span style={{ background: "linear-gradient(135deg, #818cf8, #a78bfa, #c084fc)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>custom for you.</span>
             </h2>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, color: "rgba(255,255,255,0.38)", lineHeight: 1.7, maxWidth: 460, margin: "0 auto" }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, color: "rgba(255,255,255,0.55)", lineHeight: 1.7, maxWidth: 460, margin: "0 auto" }}>
               Tell us about your business and what you're looking for. We'll get back to you within 24 hours with a game plan.
             </p>
           </div>
