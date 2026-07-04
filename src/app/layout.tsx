@@ -30,8 +30,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${bricolage.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${bricolage.variable}`}
+    >
+      <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <a
             href="#main"
