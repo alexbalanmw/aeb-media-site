@@ -14,8 +14,8 @@ export function ThemeToggle() {
   // Stable placeholder until mounted so SSR markup matches the client.
   if (!mounted) {
     return (
-      <Button variant="ghost" size="icon" aria-label="Toggle theme" disabled>
-        <SunIcon className="size-5" />
+      <Button variant="ghost" size="icon" className="size-8" aria-label="Toggle theme" disabled>
+        <SunIcon className="size-4" />
       </Button>
     );
   }
@@ -25,10 +25,11 @@ export function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon"
+      className="size-8"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >
-      {isDark ? <SunIcon className="size-5" /> : <MoonIcon className="size-5" />}
+      {isDark ? <SunIcon className="size-4" /> : <MoonIcon className="size-4" />}
     </Button>
   );
 }

@@ -17,10 +17,14 @@ const inter = Inter({
   display: "swap",
 });
 
+// display: "optional" — the font is preloaded so it almost always makes the
+// first paint; when it doesn't, the size-adjusted fallback stays for the visit
+// instead of swapping mid-view. Keeps the headline (LCP element) from
+// re-painting late and dragging LCP with it.
 const bricolage = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
 });
 
 export const metadata: Metadata = {

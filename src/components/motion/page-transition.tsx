@@ -1,16 +1,24 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
-/**
- * Route-change entrance, used from app/template.tsx so it re-runs per
- * navigation. Renders children untouched under reduced motion.
- */
+// False only for the very first document load. Motion SSRs `initial` styles
+// inline, so animating the initial load would ship the whole page hidden at
+// opacity 0 until hydration — terrible for LCP and for users without JS.
+// Client-side navigations remount the template, re-running the animation.
+let hasNavigated = false;
+
+/** Route-change entrance, used from app/template.tsx so it re-runs per navigation. */
 export function PageTransition({ children }: { children: ReactNode }) {
   const reduceMotion = useReducedMotion();
+  const shouldAnimate = hasNavigated && !reduceMotion;
 
-  if (reduceMotion) {
+  useEffect(() => {
+    hasNavigated = true;
+  }, []);
+
+  if (!shouldAnimate) {
     return <>{children}</>;
   }
 

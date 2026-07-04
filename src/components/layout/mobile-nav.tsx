@@ -40,7 +40,7 @@ export function MobileNav() {
           ))}
           <Button
             asChild
-            className="mt-4 bg-ember-500 text-white hover:bg-ember-600"
+            className="mt-4 bg-ember-500 text-ember-950 hover:bg-ember-400"
             onClick={() => setOpen(false)}
           >
             <Link href={cta.href}>{cta.label}</Link>

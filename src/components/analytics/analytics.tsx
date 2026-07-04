@@ -12,8 +12,13 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 export function Analytics() {
   return (
     <>
-      <VercelAnalytics />
-      <SpeedInsights />
+      {/* The /_vercel/* scripts only exist on Vercel deployments; skip elsewhere. */}
+      {process.env.VERCEL && (
+        <>
+          <VercelAnalytics />
+          <SpeedInsights />
+        </>
+      )}
       {GA_ID && (
         <>
           <Script

@@ -15,7 +15,7 @@ export function StickyCta() {
       <Button
         asChild
         size="lg"
-        className="w-full bg-ember-500 text-base font-semibold text-white hover:bg-ember-600"
+        className="w-full bg-ember-500 text-base font-semibold text-ember-950 hover:bg-ember-400"
       >
         <Link href={cta.href} data-cta="sticky-free-shoot">
           {cta.label}

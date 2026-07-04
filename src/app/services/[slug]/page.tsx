@@ -130,8 +130,11 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
           </ScrollReveal>
           <ol className="lg:col-span-7 lg:col-start-6">
             {service.process.map((step, index) => (
-              <ScrollReveal key={step.title} delay={index * 0.06}>
-                <li className="flex gap-6 border-t border-border py-8 first:border-t-0 first:pt-0 last:pb-0">
+              <li
+                key={step.title}
+                className="border-t border-border first:border-t-0 first:[&>div]:pt-0 last:[&>div]:pb-0"
+              >
+                <ScrollReveal delay={index * 0.06} className="flex gap-6 py-8">
                   <span
                     aria-hidden="true"
                     className="font-display text-3xl font-bold text-brand-300 dark:text-brand-700"
@@ -144,8 +147,8 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
                       {step.body}
                     </p>
                   </div>
-                </li>
-              </ScrollReveal>
+                </ScrollReveal>
+              </li>
             ))}
           </ol>
         </div>

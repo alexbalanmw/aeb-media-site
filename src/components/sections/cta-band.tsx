@@ -25,7 +25,7 @@ export function CtaBand({ title, body, buttonLabel, buttonHref }: CtaBandProps) 
             <Button
               asChild
               size="lg"
-              className="h-13 bg-ember-500 px-8 text-base font-semibold text-white hover:bg-ember-600"
+              className="h-13 bg-ember-500 px-8 text-base font-semibold text-ember-950 hover:bg-ember-400"
             >
               <Link href={buttonHref} data-cta="cta-band">
                 {buttonLabel}

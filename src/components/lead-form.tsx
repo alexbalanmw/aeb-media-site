@@ -202,7 +202,7 @@ export function LeadForm({ defaultService }: LeadFormProps) {
           type="submit"
           size="lg"
           disabled={pending}
-          className="h-13 w-full bg-ember-500 text-base font-semibold text-white hover:bg-ember-600 sm:w-auto sm:px-10"
+          className="h-13 w-full bg-ember-500 text-base font-semibold text-ember-950 hover:bg-ember-400 sm:w-auto sm:px-10"
         >
           {pending ? (
             <>

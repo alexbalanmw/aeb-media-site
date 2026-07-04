@@ -12,7 +12,7 @@ export function LogoMarquee() {
         {[...clients, ...clients].map((client, index) => (
           <span
             key={`${client}-${index}`}
-            className="whitespace-nowrap font-display text-xl font-semibold text-muted-foreground/70"
+            className="whitespace-nowrap font-display text-xl font-semibold text-muted-foreground"
           >
             {client}
           </span>
