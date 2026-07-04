@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { Footer } from "@/components/layout/footer";
+import { Header } from "@/components/layout/header";
+import { StickyCta } from "@/components/layout/sticky-cta";
 import "./globals.css";
 
 const inter = Inter({
@@ -30,7 +33,18 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${bricolage.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+          >
+            Skip to content
+          </a>
+          <Header />
+          <main id="main" className="pb-20 md:pb-0">
+            {children}
+          </main>
+          <Footer />
+          <StickyCta />
         </ThemeProvider>
       </body>
     </html>
