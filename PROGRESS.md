@@ -9,7 +9,7 @@ Working checklist for the AEB Media site rebuild. Update as work lands.
 - [x] 4. Home page (hero + counters, marquee, services strip, featured work, process, closing CTA)
 - [x] 5. Services overview + 5 detail pages (live-site copy preserved where it existed)
 - [x] 6. Work index (filterable) + case-study MDX template + 2 starter studies
-- [x] 7. About, Contact, Free-shoot pages
+- [x] 7. About, Contact, Free-audit pages (free-shoot offer replaced by free social media audit, 2026-07-04)
 - [x] 8. Lead form + n8n webhook + anti-spam (verified end-to-end against a local listener)
 - [x] 9. SEO: metadata/canonicals, dynamic OG images, sitemap/robots/llms.txt, JSON-LD
 - [x] 10. Analytics: Vercel (deploy-gated) + GA4 + Meta Pixel (env-gated), CTA + lead events
@@ -38,6 +38,8 @@ Working checklist for the AEB Media site rebuild. Update as work lands.
   manifest (no preload/size-adjust) which regresses LCP.
 - Header: 48px translucent apple-style bar (user feedback 2026-07-04); hero
   badge removed; scroll-linked hero exit via CSS scroll timelines.
+- Primary offer is the FREE SOCIAL MEDIA AUDIT (/free-audit) — user pushes
+  audits, not shoots. Full 13-client list lives in logo-marquee.tsx.
 - Page transitions skip the initial document load (motion SSRs initial styles —
   animating first load ships the page hidden at opacity 0).
 - Never run `npm run build` while a dev/prod server is serving `.next`.

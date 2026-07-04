@@ -124,10 +124,10 @@ export default function AboutPage() {
       </section>
 
       <CtaBand
-        title="Let's see what your business looks like with real content behind it."
-        body="A free 30–45 minute photo and video shoot, no strings attached. You keep the content either way."
-        buttonLabel="Claim your free shoot"
-        buttonHref="/free-shoot"
+        title="Find out where your business actually stands."
+        body="Claim your free social media audit. We'll analyze your online presence and show you exactly what's working, what's not, and how to start getting more clients."
+        buttonLabel="Claim your free audit"
+        buttonHref="/free-audit"
       />
     </>
   );

@@ -17,4 +17,4 @@ export const nav = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
-export const cta = { href: "/free-shoot", label: "Get a free shoot" } as const;
+export const cta = { href: "/free-audit", label: "Get a free audit" } as const;

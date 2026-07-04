@@ -12,15 +12,15 @@ export function ClosingCta() {
       />
       <ScrollReveal className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
         <h2 className="font-display text-display-xl font-bold text-balance">
-          See what your business looks like with{" "}
+          Every day you wait, your competitors{" "}
           <span className="bg-gradient-to-r from-brand-300 to-ember-300 bg-clip-text text-transparent">
-            real content
-          </span>{" "}
-          behind it.
+            get further ahead.
+          </span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lede text-white/70">
-          We&apos;ll come out for a free 30–45 minute photo and video shoot — no
-          strings attached. You keep the content either way.
+          Claim your free social media audit. We&apos;ll analyze your online presence
+          and show you exactly what&apos;s working, what&apos;s not, and how to start
+          getting more clients.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Magnetic>
@@ -29,8 +29,8 @@ export function ClosingCta() {
               size="lg"
               className="h-13 bg-ember-500 px-8 text-base font-semibold text-ember-950 hover:bg-ember-400"
             >
-              <Link href="/free-shoot" data-cta="closing-free-shoot">
-                Claim your free shoot
+              <Link href="/free-audit" data-cta="closing-free-audit">
+                Claim your free audit
               </Link>
             </Button>
           </Magnetic>

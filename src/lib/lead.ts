@@ -6,7 +6,7 @@ export const serviceOptions = [
   { value: "meta-ads", label: "Meta Ads" },
   { value: "web", label: "Web & Lead Gen" },
   { value: "automation", label: "AI Automation" },
-  { value: "free-shoot", label: "Free Photo/Video Shoot" },
+  { value: "free-audit", label: "Free Social Media Audit" },
   { value: "not-sure", label: "Not sure yet" },
 ] as const;
 

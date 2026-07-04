@@ -42,7 +42,7 @@ export function Header() {
             size="sm"
             className="hidden h-7 rounded-full bg-ember-500 px-3.5 text-xs font-semibold text-ember-950 hover:bg-ember-400 md:inline-flex"
           >
-            <Link href={cta.href} data-cta="header-free-shoot">
+            <Link href={cta.href} data-cta="header-free-audit">
               {cta.label}
             </Link>
           </Button>

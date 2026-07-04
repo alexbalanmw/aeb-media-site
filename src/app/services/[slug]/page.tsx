@@ -33,7 +33,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
   const service = getService(slug);
   if (!service) notFound();
 
-  const ctaHref = service.slug === "social" ? "/free-shoot" : "/contact";
+  const ctaHref = service.slug === "social" ? "/free-audit" : "/contact";
 
   return (
     <>

@@ -88,7 +88,7 @@ export const services: Service[] = [
         body: "We track every metric that matters. What's working gets amplified. What's not gets cut.",
       },
     ],
-    ctaLabel: "Get a free shoot",
+    ctaLabel: "Claim your free audit",
   },
   {
     slug: "google-ads",

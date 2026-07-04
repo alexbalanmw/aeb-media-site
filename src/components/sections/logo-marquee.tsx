@@ -1,6 +1,20 @@
 import { Marquee } from "@/components/motion/marquee";
 
-const clients = ["Swing Loose Indoor Golf", "Molly Maid of Oak Park", "Val's Services"];
+const clients = [
+  "Swing Loose Indoor Golf",
+  "Molly Maid of Oak Park",
+  "Val's Services Cleaning",
+  "Brazilian Lymph Spa",
+  "Shadow Work",
+  "Elite Adjusting Group",
+  "Connect Mortgage Corp",
+  "Full Quality Construction",
+  "Battisti Capital Group",
+  "Krav Maga Force Schaumburg",
+  "Waxing The City",
+  "Michael Kogan Self Defense",
+  "American Family Insurance Buffalo Grove",
+];
 
 export function LogoMarquee() {
   return (
@@ -9,9 +23,9 @@ export function LogoMarquee() {
         Trusted by local businesses across Chicagoland
       </p>
       <Marquee>
-        {[...clients, ...clients].map((client, index) => (
+        {clients.map((client) => (
           <span
-            key={`${client}-${index}`}
+            key={client}
             className="whitespace-nowrap font-display text-xl font-semibold text-muted-foreground"
           >
             {client}

@@ -57,7 +57,7 @@ export function Hero() {
                 size="lg"
                 className="h-13 bg-ember-500 px-8 text-base font-semibold text-ember-950 hover:bg-ember-400"
               >
-                <Link href={cta.href} data-cta="hero-free-shoot">
+                <Link href={cta.href} data-cta="hero-free-audit">
                   {cta.label}
                 </Link>
               </Button>

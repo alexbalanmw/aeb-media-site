@@ -25,7 +25,7 @@ import { leadSchema, serviceOptions, type LeadActionState } from "@/lib/lead";
 const initialState: LeadActionState = { status: "idle" };
 
 type LeadFormProps = {
-  /** Preselects the service dropdown, e.g. "free-shoot" on the landing page. */
+  /** Preselects the service dropdown, e.g. "free-audit" on the landing page. */
   defaultService?: string;
 };
 

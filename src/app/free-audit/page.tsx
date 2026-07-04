@@ -4,7 +4,6 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { LeadForm } from "@/components/lead-form";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-import { faqJsonLd } from "@/lib/seo/jsonld";
 import {
   Accordion,
   AccordionContent,
@@ -12,45 +11,46 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { faqJsonLd } from "@/lib/seo/jsonld";
 
 export const metadata: Metadata = {
-  title: "Free Photo & Video Shoot | AEB Media",
+  title: "Free Social Media Audit | AEB Media",
   description:
-    "Claim a free 30–45 minute photo and video shoot for your Chicagoland business. No strings attached — you keep the content either way.",
-  alternates: { canonical: "/free-shoot" },
+    "Claim your free social media audit. We'll analyze your online presence and show you exactly what's working, what's not, and how to start getting more clients.",
+  alternates: { canonical: "/free-audit" },
 };
 
 const included = [
-  "A 30–45 minute on-location photo and video shoot at your business",
-  "Professional direction — we script the hooks and guide you the whole way",
-  "Content you keep and can post, whether or not we ever work together",
-  "A no-pressure look at how done-for-you content actually works",
+  "A review of your social profiles and recent content — what's working, what's getting buried, and why",
+  "A look at how your presence stacks up against the competitors your customers actually see",
+  "Where leads are slipping through — search presence, response time, follow-up, booking",
+  "Concrete next steps you can act on immediately, with or without us",
 ];
 
 const faqs = [
   {
     question: "What's the catch?",
     answer:
-      "There isn't one. The shoot is free, the content is yours, and there's nothing to sign. It's how we'd rather start a relationship: show you what your business looks like with real content behind it, and let the work make the case.",
+      "There isn't one. The audit is free, the findings are yours, and there's nothing to sign. It's how we'd rather start a relationship: show you exactly where you stand, and let the work make the case.",
   },
   {
     question: "Why would you do this for free?",
     answer:
-      "Because telling you we make great content is cheap — showing you isn't. Some businesses that take the free shoot become clients. Some just walk away with good content. We're fine with both.",
+      "Because telling you we can grow your business is cheap — showing you isn't. Some businesses that take the audit become clients. Some just take the roadmap and run with it. We're fine with both.",
   },
   {
-    question: "Do I need to prepare anything?",
+    question: "What do you need from me?",
     answer:
-      "No. We handle direction, angles, and hooks on the day. Just run your business like normal — real work makes the best content.",
+      "Just your business name and where to find you online. No passwords, no account access — we audit what your customers can already see.",
   },
   {
     question: "Who is this for?",
     answer:
-      "Local businesses in the Chicagoland area — home services, fitness, wellness, and anyone whose customers should be seeing their work in the feed.",
+      "Local businesses in the Chicagoland area — home services, fitness, wellness, and anyone whose next customer is scrolling right past them.",
   },
 ];
 
-export default function FreeShootPage() {
+export default function FreeAuditPage() {
   return (
     <>
       <JsonLd data={faqJsonLd(faqs)} />
@@ -64,14 +64,15 @@ export default function FreeShootPage() {
             Free — no strings attached
           </p>
           <h1 className="mt-8 font-display text-display-2xl font-bold text-balance">
-            We&apos;ll shoot your business.{" "}
+            Find out exactly why you&apos;re{" "}
             <span className="bg-gradient-to-r from-brand-300 to-ember-300 bg-clip-text text-transparent">
-              For free.
+              not getting seen.
             </span>
           </h1>
           <p className="mx-auto mt-7 max-w-xl text-lede text-white/70">
-            A free 30–45 minute photo and video shoot at your business. You keep the
-            content either way — whether or not we ever work together.
+            Claim your free social media audit. We&apos;ll analyze your online presence
+            and show you exactly what&apos;s working, what&apos;s not, and how to start
+            getting more clients.
           </p>
           <div className="mt-10">
             <Button
@@ -79,8 +80,8 @@ export default function FreeShootPage() {
               size="lg"
               className="h-13 bg-ember-500 px-10 text-base font-semibold text-ember-950 hover:bg-ember-400"
             >
-              <Link href="#claim" data-cta="free-shoot-hero-claim">
-                Claim your free shoot
+              <Link href="#claim" data-cta="free-audit-hero-claim">
+                Claim your free audit
               </Link>
             </Button>
           </div>
@@ -125,12 +126,13 @@ export default function FreeShootPage() {
 
           <div id="claim" className="scroll-mt-24">
             <div className="rounded-2xl border border-border bg-card p-6 sm:p-10 lg:sticky lg:top-24">
-              <h2 className="font-display text-2xl font-bold">Claim your free shoot</h2>
+              <h2 className="font-display text-2xl font-bold">Claim your free audit</h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                Tell us where to show up. We&apos;ll reach out to schedule.
+                Tell us where to find you. We&apos;ll do the digging and get back to
+                you with what we found.
               </p>
               <div className="mt-8">
-                <LeadForm defaultService="free-shoot" />
+                <LeadForm defaultService="free-audit" />
               </div>
             </div>
           </div>
