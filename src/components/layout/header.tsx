@@ -36,7 +36,9 @@ export function Header() {
               asChild
               className="bg-ember-500 text-white hover:bg-ember-600 dark:bg-ember-500 dark:hover:bg-ember-400"
             >
-              <Link href={cta.href}>{cta.label}</Link>
+              <Link href={cta.href} data-cta="header-free-shoot">
+                {cta.label}
+              </Link>
             </Button>
           </Magnetic>
           <MobileNav />

@@ -53,7 +53,9 @@ export function Hero() {
                   size="lg"
                   className="h-13 bg-ember-500 px-8 text-base font-semibold text-white hover:bg-ember-600"
                 >
-                  <Link href={cta.href}>{cta.label}</Link>
+                  <Link href={cta.href} data-cta="hero-free-shoot">
+                    {cta.label}
+                  </Link>
                 </Button>
               </Magnetic>
               <Button

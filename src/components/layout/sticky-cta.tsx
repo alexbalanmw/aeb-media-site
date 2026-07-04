@@ -17,7 +17,9 @@ export function StickyCta() {
         size="lg"
         className="w-full bg-ember-500 text-base font-semibold text-white hover:bg-ember-600"
       >
-        <Link href={cta.href}>{cta.label}</Link>
+        <Link href={cta.href} data-cta="sticky-free-shoot">
+          {cta.label}
+        </Link>
       </Button>
     </div>
   );

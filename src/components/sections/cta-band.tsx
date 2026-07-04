@@ -27,7 +27,9 @@ export function CtaBand({ title, body, buttonLabel, buttonHref }: CtaBandProps) 
               size="lg"
               className="h-13 bg-ember-500 px-8 text-base font-semibold text-white hover:bg-ember-600"
             >
-              <Link href={buttonHref}>{buttonLabel}</Link>
+              <Link href={buttonHref} data-cta="cta-band">
+                {buttonLabel}
+              </Link>
             </Button>
           </Magnetic>
         </div>

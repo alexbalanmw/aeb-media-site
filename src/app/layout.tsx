@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { Analytics } from "@/components/analytics/analytics";
+import { CtaTracker } from "@/components/analytics/cta-tracker";
 import { JsonLd } from "@/components/json-ld";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
@@ -66,6 +68,8 @@ export default function RootLayout({
           <StickyCta />
         </ThemeProvider>
         <JsonLd data={organizationJsonLd()} />
+        <Analytics />
+        <CtaTracker />
       </body>
     </html>
   );

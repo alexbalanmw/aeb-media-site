@@ -29,7 +29,9 @@ export function ClosingCta() {
               size="lg"
               className="h-13 bg-ember-500 px-8 text-base font-semibold text-white hover:bg-ember-600"
             >
-              <Link href="/free-shoot">Claim your free shoot</Link>
+              <Link href="/free-shoot" data-cta="closing-free-shoot">
+                Claim your free shoot
+              </Link>
             </Button>
           </Magnetic>
           <Button

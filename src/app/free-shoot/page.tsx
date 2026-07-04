@@ -79,7 +79,9 @@ export default function FreeShootPage() {
               size="lg"
               className="h-13 bg-ember-500 px-10 text-base font-semibold text-white hover:bg-ember-600"
             >
-              <Link href="#claim">Claim your free shoot</Link>
+              <Link href="#claim" data-cta="free-shoot-hero-claim">
+                Claim your free shoot
+              </Link>
             </Button>
           </div>
         </div>
