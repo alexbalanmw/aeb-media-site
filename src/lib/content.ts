@@ -50,3 +50,41 @@ export function getCaseStudy(slug: string): CaseStudy | undefined {
 export function getFeaturedCaseStudies(): CaseStudy[] {
   return getCaseStudies().filter((study) => study.featured);
 }
+
+const blogFrontmatter = z.object({
+  title: z.string(),
+  description: z.string(),
+  date: z.string(),
+  tags: z.array(z.string()).default([]),
+});
+
+export type BlogFrontmatter = z.infer<typeof blogFrontmatter>;
+
+export type BlogPost = BlogFrontmatter & {
+  slug: string;
+  body: string;
+};
+
+const blogDir = path.join(process.cwd(), "content", "blog");
+
+export function getBlogPosts(): BlogPost[] {
+  if (!fs.existsSync(blogDir)) return [];
+  return fs
+    .readdirSync(blogDir)
+    .filter((file) => file.endsWith(".mdx"))
+    .map((file) => {
+      const raw = fs.readFileSync(path.join(blogDir, file), "utf8");
+      const { data, content } = matter(raw);
+      const frontmatter = blogFrontmatter.parse(data);
+      return {
+        ...frontmatter,
+        slug: file.replace(/\.mdx$/, ""),
+        body: content,
+      };
+    })
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export function getBlogPost(slug: string): BlogPost | undefined {
+  return getBlogPosts().find((post) => post.slug === slug);
+}

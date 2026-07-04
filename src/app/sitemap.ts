@@ -1,10 +1,18 @@
 import type { MetadataRoute } from "next";
-import { getCaseStudies } from "@/lib/content";
+import { getBlogPosts, getCaseStudies } from "@/lib/content";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/services", "/work", "/about", "/contact", "/free-audit"];
+  const staticRoutes = [
+    "",
+    "/services",
+    "/work",
+    "/blog",
+    "/about",
+    "/contact",
+    "/free-audit",
+  ];
 
   return [
     ...staticRoutes.map((path) => ({
@@ -24,6 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(study.date),
       changeFrequency: "yearly" as const,
       priority: 0.6,
+    })),
+    ...getBlogPosts().map((post) => ({
+      url: `${site.url}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: "yearly" as const,
+      priority: 0.5,
     })),
   ];
 }

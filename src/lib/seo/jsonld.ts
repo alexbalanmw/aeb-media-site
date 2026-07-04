@@ -1,4 +1,4 @@
-import type { CaseStudy } from "@/lib/content";
+import type { BlogPost, CaseStudy } from "@/lib/content";
 import type { Service } from "@/lib/services";
 import { site } from "@/lib/site";
 
@@ -79,6 +79,20 @@ export function caseStudyJsonLd(study: CaseStudy): JsonLd {
     author: { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
     about: study.services,
+  };
+}
+
+export function blogPostJsonLd(post: BlogPost): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    url: `${site.url}/blog/${post.slug}`,
+    datePublished: post.date,
+    keywords: post.tags,
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
   };
 }
 

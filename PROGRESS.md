@@ -26,7 +26,10 @@ Working checklist for the AEB Media site rebuild. Update as work lands.
   next lever is trimming the remaining motion usage on the home page.
 
 ## Open items / user to provide
-- Verified case-study numbers (marked `{/* TODO: confirm */}` in content/case-studies/*.mdx)
+- Verified case-study numbers — swing-loose (baseline spend/cost per booking; result: cost per
+  booking change, booking volume, ROAS) and molly-maid (response time, booking rate, review growth).
+  MDX comments were removed because Keystatic's editor can't parse `{/* */}` expressions —
+  don't add them back into content/ files; track pending numbers here instead.
 - Public contact email confirmation (currently alexb@aeb.media) + social profile URLs (footer TODO)
 - Founder bio details for About beyond public positioning
 - Client logo files if image logos are wanted in the marquee (text wordmarks now)

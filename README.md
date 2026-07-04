@@ -36,6 +36,26 @@ All documented in [.env.example](.env.example):
 
 ## Content authoring
 
+### Admin console (Keystatic)
+
+Open **`/keystatic`** to manage Case Studies and Blog Posts in a visual editor.
+
+- **Locally** (`npm run dev`): works immediately, no login — saves write the MDX
+  files in `content/` directly.
+- **On the deployed site**: requires GitHub mode. One-time setup:
+  1. Run `npm run dev` with `NEXT_PUBLIC_KEYSTATIC_GITHUB_REPO=owner/repo` set in
+     `.env.local`, open `/keystatic`, and follow the prompt — Keystatic creates a
+     GitHub App for you and writes the three `KEYSTATIC_*` secrets to `.env.local`.
+  2. Copy all four Keystatic vars into Vercel Project Settings and redeploy.
+  3. From then on: visit `aeb.media/keystatic`, log in with GitHub, write, save.
+     Each save is a commit; Vercel rebuilds and the post is live in ~2 minutes.
+
+Note: don't use `{/* comment */}` expressions inside content MDX — Keystatic's
+editor can't parse them (build renders them fine, but the entry becomes
+uneditable in the admin).
+
+### By hand
+
 **Case studies** — drop an `.mdx` file into `content/case-studies/`. Frontmatter
 is zod-validated at build time (`src/lib/content.ts`):
 
@@ -52,7 +72,11 @@ featured: true # shows on the home page
 ---
 ```
 
-The body is MDX. Mark unverified numbers with `{/* TODO: confirm */}`.
+The body is MDX. Track unverified numbers in PROGRESS.md (not as MDX comments —
+see the Keystatic note above).
+
+**Blog posts** — same idea in `content/blog/`; frontmatter is `title`,
+`description`, `date`, `tags` (optional array).
 
 **Services** — typed objects in `src/lib/services.ts` (five pillars). Editing a
 service updates its detail page, the overview row, home strip, and footer link.
