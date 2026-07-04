@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { m, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
 type ScrollRevealProps = {
@@ -25,7 +25,7 @@ export function ScrollReveal({
   }
 
   return (
-    <motion.div
+    <m.div
       className={className}
       initial={{ opacity: 0, y, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -33,6 +33,6 @@ export function ScrollReveal({
       transition={{ duration: 0.7, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

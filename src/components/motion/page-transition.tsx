@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { m, useReducedMotion } from "motion/react";
 import { useEffect, type ReactNode } from "react";
 
 // False only for the very first document load. Motion SSRs `initial` styles
@@ -23,12 +23,12 @@ export function PageTransition({ children }: { children: ReactNode }) {
   }
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

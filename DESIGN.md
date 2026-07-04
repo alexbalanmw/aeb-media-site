@@ -39,7 +39,13 @@ never hidden content). Primitives in `src/components/motion/`:
 - `AnimatedCounter` — counts up in view; SSR/reduced-motion renders final value.
 - `Marquee` — pure-CSS logo loop (server component), pauses on hover, static when reduced.
 - `Magnetic` — ≤6px drift toward pointer on CTAs. Mouse-only.
-- `PageTransition` — 0.35s fade/rise per route via `app/template.tsx`.
+- `PageTransition` — 0.35s fade/rise on client-side navigations only (never the
+  initial document load — motion SSRs initial styles, which would hide the page).
+- `.scroll-exit` (CSS utility) — apple-style scroll-linked fade/drift/scale as a
+  section leaves the viewport. Pure CSS scroll timelines; safe on LCP elements.
+
+Motion ships via `LazyMotion` + async feature bundle; use `m.*` not `motion.*`.
+Never attach entrance animations (even transform-only) to the page's LCP element.
 
 Durations 0.3–0.6s, ease `[0.21, 0.47, 0.32, 0.98]`. No parallax, no scroll-jacking.
 

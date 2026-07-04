@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AEB Media — aeb.media
 
-## Getting Started
+Marketing site for AEB Media, a Chicagoland digital-marketing agency for local
+businesses. Next.js 15 (App Router, RSC), TypeScript strict, Tailwind v4,
+shadcn/ui, motion/react, MDX content layer. Deploys on Vercel.
 
-First, run the development server:
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # fill in what you have; everything degrades gracefully
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Command             | What it does                 |
+| ------------------- | ---------------------------- |
+| `npm run dev`       | Dev server (Turbopack)       |
+| `npm run build`     | Production build (Turbopack) |
+| `npm run start`     | Serve the production build   |
+| `npm run lint`      | ESLint (incl. jsx-a11y)      |
+| `npm run typecheck` | `tsc --noEmit`               |
+| `npm run format`    | Prettier write               |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> Build note: keep `--turbopack` on `next build`. The webpack build produces an
+> empty font manifest (no font preload/size-adjust), which hurts LCP.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment variables
 
-## Learn More
+All documented in [.env.example](.env.example):
 
-To learn more about Next.js, take a look at the following resources:
+- `NEXT_PUBLIC_SITE_URL` — canonical origin for metadata/sitemap/OG.
+- `N8N_LEAD_WEBHOOK_URL` — n8n webhook that receives lead-form POSTs (JSON).
+  Unset: submissions log (redacted) to the server console and no-op gracefully.
+- `NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_META_PIXEL_ID` — analytics scripts render
+  only when set. Vercel Analytics/Speed Insights load only on Vercel deploys.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content authoring
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Case studies** — drop an `.mdx` file into `content/case-studies/`. Frontmatter
+is zod-validated at build time (`src/lib/content.ts`):
 
-## Deploy on Vercel
+```yaml
+---
+title: "..."
+client: "..."
+vertical: "Home Services"
+services: ["Social Media Content", "AI Automation"]
+resultHeadline: "..."
+summary: "..."
+date: "2026-01-15"
+featured: true # shows on the home page
+---
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The body is MDX. Mark unverified numbers with `{/* TODO: confirm */}`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Services** — typed objects in `src/lib/services.ts` (five pillars). Editing a
+service updates its detail page, the overview row, home strip, and footer link.
+
+**Site-wide constants** — name, email, region, nav, CTA in `src/lib/site.ts`.
+
+## Architecture notes
+
+- Server components by default; `"use client"` only at interactive leaves
+  (nav sheet, theme toggle, lead form, work filters, motion primitives).
+- Motion loads through `LazyMotion` with an async feature bundle
+  (`src/components/motion/motion-provider.tsx`) to keep initial JS small.
+  The hero's scroll-linked fade is pure CSS (`.scroll-exit`, scroll timelines).
+- All motion honors `prefers-reduced-motion` with static fallbacks.
+- Lead pipeline: `src/components/lead-form.tsx` → server action
+  `src/app/actions/lead.ts` → n8n webhook. Anti-spam: honeypot field,
+  time-to-submit window, per-IP sliding-window rate limit.
+- SEO: per-route metadata + canonicals, dynamic `ImageResponse` OG images,
+  `sitemap.ts`, `robots.ts` (AI crawlers allowed), `public/llms.txt`, JSON-LD
+  (ProfessionalService, Service, BreadcrumbList, Article, FAQPage) via
+  `src/lib/seo/jsonld.ts`.
+
+## Deploy (Vercel)
+
+1. Import the repo in Vercel; framework auto-detects Next.js.
+2. Set the env vars above in Project Settings.
+3. Vercel Analytics + Speed Insights activate automatically on deploy.
+4. After the first deploy, verify with PageSpeed Insights (mobile) and the
+   Google Rich Results test on `/`, a service page, and a case study.

@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/json-ld";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { StickyCta } from "@/components/layout/sticky-cta";
+import { MotionProvider } from "@/components/motion/motion-provider";
 import { organizationJsonLd } from "@/lib/seo/jsonld";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -58,6 +59,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <MotionProvider>
           <a
             href="#main"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
@@ -68,8 +70,9 @@ export default function RootLayout({
           <main id="main" className="pb-20 md:pb-0">
             {children}
           </main>
-          <Footer />
-          <StickyCta />
+            <Footer />
+            <StickyCta />
+          </MotionProvider>
         </ThemeProvider>
         <JsonLd data={organizationJsonLd()} />
         <Analytics />

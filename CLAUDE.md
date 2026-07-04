@@ -20,9 +20,18 @@ Package manager: npm (pnpm unavailable on this machine — corepack needs admin)
 - Brand purple: #6b3fa0. Respect prefers-reduced-motion everywhere.
 
 ## Design decisions (confirmed)
-- Accent: warm amber/coral family (see DESIGN.md for exact tokens).
+- Accent: warm amber/coral family (see DESIGN.md for exact tokens). Ember CTAs
+  use dark ember-950 text on ember-500 (AA contrast).
 - Display type: Bricolage Grotesque; body: Inter. Both via next/font.
 - Dark mode: class-based via next-themes, defaults to system.
+- Header: slim 48px translucent apple-style bar, centered nav, pill CTA (2026-07-04).
+- Motion: LazyMotion + `m.*` components; no entrance animation on LCP elements;
+  page transitions skip the initial document load. See DESIGN.md.
+
+## Build gotchas
+- `next build --turbopack` required — webpack build emits an empty font manifest
+  (no font preload/size-adjust), regressing LCP.
+- Never run a build while a dev/prod server is serving `.next` (shared dir).
 
 ## Integrations
 - Lead form -> n8n webhook via `N8N_LEAD_WEBHOOK_URL`.

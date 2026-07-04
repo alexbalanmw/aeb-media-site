@@ -179,6 +179,30 @@
   --sidebar-ring: var(--color-brand-400);
 }
 
+@layer utilities {
+  /* Apple-style scroll-linked exit: fades/drifts/scales as the element leaves
+     the scrollport. Pure CSS (no hydration repaint — safe on LCP elements);
+     browsers without scroll timelines simply skip it. */
+  @supports (animation-timeline: view()) {
+    .scroll-exit {
+      animation: scroll-exit linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 90%;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-exit {
+        animation: none;
+      }
+    }
+  }
+  @keyframes scroll-exit {
+    to {
+      opacity: 0;
+      transform: translateY(60px) scale(0.96);
+    }
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

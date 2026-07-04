@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/motion/animated-counter";
 import { Magnetic } from "@/components/motion/magnetic";
-import { ScrollFade } from "@/components/motion/scroll-fade";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { cta } from "@/lib/site";
@@ -29,7 +28,7 @@ export function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_45%_at_70%_20%,rgb(107_63_160/0.35),transparent)]"
       />
-      <ScrollFade className="relative mx-auto grid max-w-6xl gap-14 px-4 pb-20 pt-20 sm:px-6 md:pb-28 md:pt-28 lg:grid-cols-12 lg:gap-8">
+      <div className="scroll-exit relative mx-auto grid max-w-6xl gap-14 px-4 pb-20 pt-20 sm:px-6 md:pb-28 md:pt-28 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-7">
           {/* No entrance animation on the H1 — it's the LCP element and any
               animation (even transform-only) re-emits its LCP candidate late. */}
@@ -109,7 +108,7 @@ export function Hero() {
             </dl>
           </div>
         </div>
-      </ScrollFade>
+      </div>
     </section>
   );
 }

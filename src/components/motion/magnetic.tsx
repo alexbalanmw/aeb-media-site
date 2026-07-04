@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion, useSpring } from "motion/react";
+import { m, useReducedMotion, useSpring } from "motion/react";
 import { useRef, type ReactNode } from "react";
 
 type MagneticProps = {
@@ -40,7 +40,7 @@ export function Magnetic({ children, className, strength = 6 }: MagneticProps) {
   };
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className={className}
       style={{ x, y, display: "inline-block" }}
@@ -48,6 +48,6 @@ export function Magnetic({ children, className, strength = 6 }: MagneticProps) {
       onPointerLeave={reset}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

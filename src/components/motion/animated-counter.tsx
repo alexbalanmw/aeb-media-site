@@ -1,6 +1,5 @@
 "use client";
 
-import { animate, useInView, useReducedMotion } from "motion/react";
 import { useEffect, useRef } from "react";
 
 type AnimatedCounterProps = {
@@ -13,6 +12,12 @@ type AnimatedCounterProps = {
   duration?: number;
 };
 
+const easeOut = (t: number) => 1 - Math.pow(1 - t, 4);
+
+/**
+ * Dependency-free rAF count-up. Renders the final value for SSR, no-JS, and
+ * reduced-motion users; counts up once when scrolled into view.
+ */
 export function AnimatedCounter({
   value,
   prefix = "",
@@ -21,25 +26,36 @@ export function AnimatedCounter({
   duration = 2,
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const reduceMotion = useReducedMotion();
   const format = (n: number) => `${prefix}${Math.round(n).toLocaleString("en-US")}${suffix}`;
 
   useEffect(() => {
     const node = ref.current;
-    if (!node || !inView || reduceMotion) return;
-    const controls = animate(0, value, {
-      duration,
-      ease: [0.16, 1, 0.3, 1],
-      onUpdate: (latest) => {
-        node.textContent = format(latest);
-      },
-    });
-    return () => controls.stop();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inView, reduceMotion, value, duration]);
+    if (!node) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  // Render the final value for SSR, no-JS, and reduced-motion users.
+    let frame = 0;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0]?.isIntersecting) return;
+        observer.disconnect();
+        const start = performance.now();
+        const tick = (now: number) => {
+          const progress = Math.min((now - start) / (duration * 1000), 1);
+          node.textContent = format(value * easeOut(progress));
+          if (progress < 1) frame = requestAnimationFrame(tick);
+        };
+        frame = requestAnimationFrame(tick);
+      },
+      { rootMargin: "-40px" },
+    );
+    observer.observe(node);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value, duration]);
+
   return (
     <span ref={ref} className={className} aria-label={format(value)}>
       {format(value)}
