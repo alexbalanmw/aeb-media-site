@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Contact Us | AEB Media",
   description:
     "Book a free consultation. We'll learn about your business and build a custom growth plan — no pressure, no obligations.",
+  alternates: { canonical: "/contact" },
 };
 
 const expectations = [

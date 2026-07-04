@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { JsonLd } from "@/components/json-ld";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { StickyCta } from "@/components/layout/sticky-cta";
+import { organizationJsonLd } from "@/lib/seo/jsonld";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -19,9 +22,21 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "AEB Media | Social Media & Ads Agency for Local Businesses",
+  metadataBase: new URL(site.url),
+  title: {
+    default: "AEB Media | Social Media & Ads Agency for Local Businesses",
+    template: "%s",
+  },
   description:
     "Custom growth systems for local businesses: social media content, Google Ads, Meta campaigns, and AI automations. Chicagoland. 127M+ views generated.",
+  openGraph: {
+    siteName: site.name,
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
@@ -50,6 +65,7 @@ export default function RootLayout({
           <Footer />
           <StickyCta />
         </ThemeProvider>
+        <JsonLd data={organizationJsonLd()} />
       </body>
     </html>
   );

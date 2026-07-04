@@ -1,8 +1,10 @@
 import { CheckIcon } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/json-ld";
 import { CtaBand } from "@/components/sections/cta-band";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo/jsonld";
 import { getService, services } from "@/lib/services";
 
 type Params = { slug: string };
@@ -22,6 +24,7 @@ export async function generateMetadata({
   return {
     title: `${service.navLabel} | AEB Media`,
     description: service.blurb,
+    alternates: { canonical: `/services/${service.slug}` },
   };
 }
 
@@ -34,6 +37,16 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
 
   return (
     <>
+      <JsonLd
+        data={[
+          serviceJsonLd(service),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: service.navLabel, path: `/services/${service.slug}` },
+          ]),
+        ]}
+      />
       <section className="relative overflow-hidden bg-gradient-to-b from-ink to-brand-950 text-white">
         <div
           aria-hidden="true"

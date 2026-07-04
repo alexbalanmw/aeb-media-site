@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "About | AEB Media",
   description:
     "AEB Media is a Chicagoland digital-marketing agency founded by Alex Balan — done-for-you content and growth systems that turn attention into revenue.",
+  alternates: { canonical: "/about" },
 };
 
 const beliefs = [

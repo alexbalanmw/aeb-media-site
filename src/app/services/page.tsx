@@ -1,19 +1,28 @@
 import { ArrowRightIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
 import { CtaBand } from "@/components/sections/cta-band";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { services } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "Services | AEB Media",
   description:
     "Social media content, Google Ads, Meta Ads, web development, and AI automation — five pillars, combined into a custom growth system for your local business.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ])}
+      />
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-16 sm:px-6 md:pt-24">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-600 dark:text-brand-400">

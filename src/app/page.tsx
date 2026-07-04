@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "AEB Media | Social Media & Ads Agency for Local Businesses",
   description:
     "We build custom growth systems for local businesses — social media, Google Ads, Meta campaigns, and AI automations. Over 127M+ views generated.",
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {

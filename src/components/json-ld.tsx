@@ -1,0 +1,21 @@
+type JsonLdProps = {
+  data: Record<string, unknown> | Record<string, unknown>[];
+};
+
+export function JsonLd({ data }: JsonLdProps) {
+  const items = Array.isArray(data) ? data : [data];
+  return (
+    <>
+      {items.map((item, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          // JSON-LD must be raw JSON inside the script tag.
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(item).replace(/</g, "\\u003c"),
+          }}
+        />
+      ))}
+    </>
+  );
+}

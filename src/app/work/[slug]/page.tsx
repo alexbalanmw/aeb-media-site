@@ -3,8 +3,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { JsonLd } from "@/components/json-ld";
 import { CtaBand } from "@/components/sections/cta-band";
 import { getCaseStudies, getCaseStudy } from "@/lib/content";
+import { breadcrumbJsonLd, caseStudyJsonLd } from "@/lib/seo/jsonld";
 
 type Params = { slug: string };
 
@@ -23,6 +25,7 @@ export async function generateMetadata({
   return {
     title: `${study.client} Case Study | AEB Media`,
     description: study.summary,
+    alternates: { canonical: `/work/${study.slug}` },
   };
 }
 
@@ -33,6 +36,16 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
 
   return (
     <>
+      <JsonLd
+        data={[
+          caseStudyJsonLd(study),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/work" },
+            { name: study.client, path: `/work/${study.slug}` },
+          ]),
+        ]}
+      />
       <section className="relative overflow-hidden bg-gradient-to-b from-ink to-brand-950 text-white">
         <div
           aria-hidden="true"

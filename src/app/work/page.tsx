@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/json-ld";
 import { CtaBand } from "@/components/sections/cta-band";
 import { WorkGrid } from "@/components/work/work-grid";
 import { getCaseStudies } from "@/lib/content";
+import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 
 export const metadata: Metadata = {
   title: "Work & Case Studies | AEB Media",
   description:
     "Real results for real local businesses — case studies in social content, Google Ads, Meta Ads, and AI automation across Chicagoland.",
+  alternates: { canonical: "/work" },
 };
 
 export default function WorkPage() {
@@ -23,6 +26,12 @@ export default function WorkPage() {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Work", path: "/work" },
+        ])}
+      />
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-16 sm:px-6 md:pt-24">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-600 dark:text-brand-400">

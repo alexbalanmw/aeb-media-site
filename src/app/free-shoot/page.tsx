@@ -1,8 +1,10 @@
 import { CheckIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
 import { LeadForm } from "@/components/lead-form";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { faqJsonLd } from "@/lib/seo/jsonld";
 import {
   Accordion,
   AccordionContent,
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
   title: "Free Photo & Video Shoot | AEB Media",
   description:
     "Claim a free 30–45 minute photo and video shoot for your Chicagoland business. No strings attached — you keep the content either way.",
+  alternates: { canonical: "/free-shoot" },
 };
 
 const included = [
@@ -50,6 +53,7 @@ const faqs = [
 export default function FreeShootPage() {
   return (
     <>
+      <JsonLd data={faqJsonLd(faqs)} />
       <section className="relative overflow-hidden bg-gradient-to-b from-ink via-brand-950 to-ink text-white">
         <div
           aria-hidden="true"
