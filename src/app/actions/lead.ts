@@ -52,10 +52,13 @@ export async function submitLead(
     return { status: "error", errors, message: "Please fix the fields marked below." };
   }
 
-  const webhookUrl = process.env.N8N_LEAD_WEBHOOK_URL;
+  // Any JSON-accepting endpoint works: Formspree today, n8n later.
+  // Falls back to the old var name in case it's still set somewhere.
+  const webhookUrl =
+    process.env.LEAD_WEBHOOK_URL ?? process.env.N8N_LEAD_WEBHOOK_URL;
   if (!webhookUrl) {
     console.warn(
-      "[lead] N8N_LEAD_WEBHOOK_URL is not set — lead accepted but NOT forwarded:",
+      "[lead] LEAD_WEBHOOK_URL is not set — lead accepted but NOT forwarded:",
       { ...parsed.data, email: "<redacted>", phone: "<redacted>" },
     );
     return { status: "success" };
@@ -64,15 +67,19 @@ export async function submitLead(
   try {
     const response = await fetch(webhookUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
         ...parsed.data,
         source: "aeb.media website",
         submittedAt: new Date().toISOString(),
+        // Formspree conveniences (harmless extras for any other endpoint):
+        // reply directly to the lead, readable inbox subject line.
+        _replyto: parsed.data.email,
+        _subject: `New lead from aeb.media — ${parsed.data.name} (${parsed.data.service})`,
       }),
     });
     if (!response.ok) {
-      console.error(`[lead] n8n webhook responded ${response.status}`);
+      console.error(`[lead] webhook responded ${response.status}`);
       return {
         status: "error",
         message:
@@ -80,7 +87,7 @@ export async function submitLead(
       };
     }
   } catch (error) {
-    console.error("[lead] n8n webhook request failed", error);
+    console.error("[lead] webhook request failed", error);
     return {
       status: "error",
       message:

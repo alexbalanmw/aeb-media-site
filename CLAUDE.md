@@ -34,7 +34,7 @@ Package manager: npm (pnpm unavailable on this machine — corepack needs admin)
 - Never run a build while a dev/prod server is serving `.next` (shared dir).
 
 ## Integrations
-- Lead form -> n8n webhook via `N8N_LEAD_WEBHOOK_URL`.
+- Lead form -> `LEAD_WEBHOOK_URL` (currently Formspree -> Alex's email; n8n later).
 - Analytics: Vercel Analytics/Speed Insights; GA4 + Meta Pixel behind env vars.
 
 ## Commands

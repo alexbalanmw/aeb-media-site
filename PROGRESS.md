@@ -33,7 +33,7 @@ Working checklist for the AEB Media site rebuild. Update as work lands.
 - Public contact email confirmation (currently alexb@aeb.media) + social profile URLs (footer TODO)
 - Founder bio details for About beyond public positioning
 - Client logo files if image logos are wanted in the marquee (text wordmarks now)
-- Env vars in Vercel: N8N_LEAD_WEBHOOK_URL, NEXT_PUBLIC_GA_ID, NEXT_PUBLIC_META_PIXEL_ID, NEXT_PUBLIC_SITE_URL
+- Env vars in Vercel: LEAD_WEBHOOK_URL (Formspree endpoint), NEXT_PUBLIC_GA_ID, NEXT_PUBLIC_META_PIXEL_ID, NEXT_PUBLIC_SITE_URL, KEYSTATIC_* (after GitHub-mode setup)
 
 ## Notes / decisions
 - npm (not pnpm): corepack enable requires admin on this machine.

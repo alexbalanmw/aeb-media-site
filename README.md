@@ -29,8 +29,9 @@ npm run dev                  # http://localhost:3000
 All documented in [.env.example](.env.example):
 
 - `NEXT_PUBLIC_SITE_URL` — canonical origin for metadata/sitemap/OG.
-- `N8N_LEAD_WEBHOOK_URL` — n8n webhook that receives lead-form POSTs (JSON).
-  Unset: submissions log (redacted) to the server console and no-op gracefully.
+- `LEAD_WEBHOOK_URL` — endpoint that receives lead-form POSTs (JSON). Currently a
+  Formspree form endpoint (`https://formspree.io/f/XXXXXXXX`); any webhook (e.g.
+  n8n) works. Unset: submissions log (redacted) to the server console and no-op.
 - `NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_META_PIXEL_ID` — analytics scripts render
   only when set. Vercel Analytics/Speed Insights load only on Vercel deploys.
 
@@ -92,8 +93,8 @@ service updates its detail page, the overview row, home strip, and footer link.
   The hero's scroll-linked fade is pure CSS (`.scroll-exit`, scroll timelines).
 - All motion honors `prefers-reduced-motion` with static fallbacks.
 - Lead pipeline: `src/components/lead-form.tsx` → server action
-  `src/app/actions/lead.ts` → n8n webhook. Anti-spam: honeypot field,
-  time-to-submit window, per-IP sliding-window rate limit.
+  `src/app/actions/lead.ts` → `LEAD_WEBHOOK_URL` (Formspree). Anti-spam:
+  honeypot field, time-to-submit window, per-IP sliding-window rate limit.
 - SEO: per-route metadata + canonicals, dynamic `ImageResponse` OG images,
   `sitemap.ts`, `robots.ts` (AI crawlers allowed), `public/llms.txt`, JSON-LD
   (ProfessionalService, Service, BreadcrumbList, Article, FAQPage) via
