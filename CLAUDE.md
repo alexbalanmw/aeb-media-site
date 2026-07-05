@@ -23,7 +23,8 @@ Package manager: npm (pnpm unavailable on this machine — corepack needs admin)
 - Accent: warm amber/coral family (see DESIGN.md for exact tokens). Ember CTAs
   use dark ember-950 text on ember-500 (AA contrast).
 - Display type: Bricolage Grotesque; body: Inter. Both via next/font.
-- Dark mode: class-based via next-themes, defaults to system.
+- DARK ONLY (2026-07-04): no light theme, no toggle, no next-themes. The `dark`
+  class is hardcoded on <html>; light-mode token values in globals.css are dead.
 - Header: slim 48px translucent apple-style bar, centered nav, pill CTA (2026-07-04).
 - Motion: LazyMotion + `m.*` components; no entrance animation on LCP elements;
   page transitions skip the initial document load. See DESIGN.md.

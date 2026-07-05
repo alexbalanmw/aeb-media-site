@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/layout/mobile-nav";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { cta, nav } from "@/lib/site";
 
 /**
@@ -36,7 +35,6 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-1.5">
-          <ThemeToggle />
           <Button
             asChild
             size="sm"

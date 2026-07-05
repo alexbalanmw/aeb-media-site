@@ -56,7 +56,10 @@ Durations 0.3–0.6s, ease `[0.21, 0.47, 0.32, 0.98]`. No parallax, no scroll-ja
 - Dark sections (`brand-950`/ink) punctuate the warm paper flow for rhythm.
 - Radius scale from `--radius: 0.625rem`.
 
-## Dark mode
+## Dark only
 
-Class strategy via `next-themes`, defaults to system. Dark is a first-class palette
-(purple-cast surfaces), not inverted gray.
+The site ships dark exclusively (user decision 2026-07-04): the `dark` class is
+hardcoded on `<html>`, there is no toggle, and `color-scheme: dark` covers form
+controls/scrollbars. The purple-cast dark palette (`#110c19` surfaces) is the
+brand look. Light-mode `:root` token values remain in globals.css but are unused —
+if a light theme ever returns, start there.

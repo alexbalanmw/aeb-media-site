@@ -1,6 +1,5 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
-import { ThemeProvider } from "next-themes";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -38,22 +37,19 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#110c19",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${inter.variable} ${bricolage.variable}`}
-    >
-      <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-        </ThemeProvider>
-      </body>
+    // Dark-only site: the class is baked on and there is no theme toggle.
+    <html lang="en" className={`dark ${inter.variable} ${bricolage.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

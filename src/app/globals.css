@@ -212,6 +212,7 @@
   }
   html {
     @apply font-sans antialiased scroll-smooth;
+    color-scheme: dark;
   }
   @media (prefers-reduced-motion: reduce) {
     html {
