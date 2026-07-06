@@ -3,9 +3,9 @@ import { LeadForm } from "@/components/lead-form";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact Us | AEB Media",
+  title: "Contact AEB Media | Free Marketing Consultation in Chicagoland",
   description:
-    "Book a free consultation. We'll learn about your business and build a custom growth plan — no pressure, no obligations.",
+    "Book a free marketing consultation for your Chicagoland business. We'll learn about your goals and build a custom growth plan — no pressure, no obligations.",
   alternates: { canonical: "/contact" },
 };
 

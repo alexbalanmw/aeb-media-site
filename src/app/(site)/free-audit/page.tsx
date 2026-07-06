@@ -14,9 +14,9 @@ import { Button } from "@/components/ui/button";
 import { faqJsonLd } from "@/lib/seo/jsonld";
 
 export const metadata: Metadata = {
-  title: "Free Social Media Audit | AEB Media",
+  title: "Free Social Media Audit for Chicago Businesses | AEB Media",
   description:
-    "Claim your free social media audit. We'll analyze your online presence and show you exactly what's working, what's not, and how to start getting more clients.",
+    "Claim a free social media audit for your Chicagoland business. We'll show you exactly what's working, what's not, and how to start getting more clients.",
   alternates: { canonical: "/free-audit" },
 };
 

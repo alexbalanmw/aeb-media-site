@@ -22,11 +22,14 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "AEB Media | Social Media & Ads Agency for Local Businesses",
+    default: "AEB Media | Chicago Social Media & Ads Agency for Local Businesses",
     template: "%s",
   },
   description:
     "Custom growth systems for local businesses: social media content, Google Ads, Meta campaigns, and AI automations. Chicagoland. 127M+ views generated.",
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
   openGraph: {
     siteName: site.name,
     type: "website",

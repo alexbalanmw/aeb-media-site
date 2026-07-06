@@ -7,10 +7,13 @@ import { getBlogPosts } from "@/lib/content";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 
 export const metadata: Metadata = {
-  title: "Blog | AEB Media",
+  title: "Local Business Marketing Blog | AEB Media",
   description:
-    "Insights on social media marketing, Google Ads, Meta Ads, and AI automations for local businesses.",
-  alternates: { canonical: "/blog" },
+    "Practical insights on social media marketing, Google Ads, Meta Ads, and AI automation for local businesses — from a Chicagoland agency in the field.",
+  alternates: {
+    canonical: "/blog",
+    types: { "application/rss+xml": "/blog/feed.xml" },
+  },
 };
 
 const dateFormat = new Intl.DateTimeFormat("en-US", {

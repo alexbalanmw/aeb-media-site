@@ -25,6 +25,17 @@ Working checklist for the AEB Media site rebuild. Update as work lands.
   + HTTP/2 remove the two biggest local penalties) and confirm ≥95; if short,
   next lever is trimming the remaining motion usage on the home page.
 
+## SEO traction checklist (post-launch, mostly Alex's side)
+- [ ] Google Search Console: verify aeb.media (set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      in Vercel with the meta-tag token), then submit sitemap.xml
+- [ ] Google Business Profile: claim/update, link aeb.media, pick service areas +
+      categories — the single biggest lever for local "near me" searches
+- [ ] Reviews: automated Google review requests (the automation service, pointed at itself)
+- [ ] Citations: consistent name/area/phone on Yelp, Facebook, Nextdoor, local directories
+- [ ] Publish 1-2 blog posts/month targeting local queries (e.g. "google ads for cleaning
+      companies", "social media for gyms in chicago") — via /keystatic
+- [ ] Bing Webmaster Tools (free import from Search Console)
+
 ## Open items / user to provide
 - Verified case-study numbers — swing-loose (baseline spend/cost per booking; result: cost per
   booking change, booking volume, ROAS) and molly-maid (response time, booking rate, review growth).

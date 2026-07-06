@@ -6,9 +6,9 @@ import { getCaseStudies } from "@/lib/content";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 
 export const metadata: Metadata = {
-  title: "Work & Case Studies | AEB Media",
+  title: "Local Business Marketing Case Studies | AEB Media",
   description:
-    "Real results for real local businesses — case studies in social content, Google Ads, Meta Ads, and AI automation across Chicagoland.",
+    "Real results for Chicagoland local businesses — case studies in social media content, Google Ads, Meta Ads, and AI automation for home services, fitness, and wellness.",
   alternates: { canonical: "/work" },
 };
 

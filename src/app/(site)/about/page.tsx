@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About | AEB Media",
+  title: "About AEB Media | Chicagoland Digital Marketing Agency",
   description:
     "AEB Media is a Chicagoland digital-marketing agency founded by Alex Balan — done-for-you content and growth systems that turn attention into revenue.",
   alternates: { canonical: "/about" },

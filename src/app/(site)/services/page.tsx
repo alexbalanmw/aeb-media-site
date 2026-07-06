@@ -8,9 +8,9 @@ import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { services } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "Services | AEB Media",
+  title: "Digital Marketing Services in Chicagoland | AEB Media",
   description:
-    "Social media content, Google Ads, Meta Ads, web development, and AI automation — five pillars, combined into a custom growth system for your local business.",
+    "Social media content, Google Ads, Facebook & Instagram Ads, web design, and AI automation for Chicagoland local businesses — one custom growth system.",
   alternates: { canonical: "/services" },
 };
 

@@ -15,16 +15,22 @@ export function organizationJsonLd(): JsonLd {
     "@id": ORG_ID,
     name: site.name,
     description: site.description,
+    slogan: "Custom growth systems for local businesses",
     url: site.url,
     email: site.email,
+    image: `${site.url}/opengraph-image`,
+    logo: `${site.url}/opengraph-image`,
     founder: {
       "@type": "Person",
       name: site.founder,
     },
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: "Chicagoland, Illinois",
-    },
+    areaServed: [
+      { "@type": "AdministrativeArea", name: "Chicagoland, Illinois" },
+      { "@type": "City", name: "Chicago" },
+      { "@type": "City", name: "Oak Park" },
+      { "@type": "City", name: "Schaumburg" },
+      { "@type": "City", name: "Buffalo Grove" },
+    ],
     address: {
       "@type": "PostalAddress",
       addressRegion: "IL",
@@ -32,10 +38,11 @@ export function organizationJsonLd(): JsonLd {
     },
     knowsAbout: [
       "Social media marketing",
-      "Google Ads",
-      "Meta Ads",
-      "Web development",
-      "Marketing automation",
+      "Social media content production",
+      "Google Ads management",
+      "Facebook and Instagram advertising",
+      "Web design and lead generation",
+      "AI marketing automation",
     ],
   };
 }

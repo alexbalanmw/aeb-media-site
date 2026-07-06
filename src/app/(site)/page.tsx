@@ -7,9 +7,9 @@ import { Process } from "@/components/sections/process";
 import { ServicesStrip } from "@/components/sections/services-strip";
 
 export const metadata: Metadata = {
-  title: "AEB Media | Social Media & Ads Agency for Local Businesses",
+  title: "AEB Media | Chicago Social Media & Ads Agency for Local Businesses",
   description:
-    "We build custom growth systems for local businesses — social media, Google Ads, Meta campaigns, and AI automations. Over 127M+ views generated.",
+    "We build custom growth systems for Chicagoland local businesses — social media content, Google Ads, Meta campaigns, and AI automations. Over 127M+ views generated.",
   alternates: { canonical: "/" },
 };
 

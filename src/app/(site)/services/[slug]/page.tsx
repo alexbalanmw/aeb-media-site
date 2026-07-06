@@ -1,10 +1,18 @@
-import { CheckIcon } from "lucide-react";
+import { ArrowRightIcon, CheckIcon } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { CtaBand } from "@/components/sections/cta-band";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo/jsonld";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo/jsonld";
+import { serviceSeo } from "@/lib/service-seo";
 import { getService, services } from "@/lib/services";
 
 type Params = { slug: string };
@@ -21,9 +29,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = getService(slug);
   if (!service) return {};
+  const seo = serviceSeo[service.slug];
   return {
-    title: `${service.navLabel} | AEB Media`,
-    description: service.blurb,
+    title: seo?.title ?? `${service.navLabel} | AEB Media`,
+    description: seo?.description ?? service.blurb,
     alternates: { canonical: `/services/${service.slug}` },
   };
 }
@@ -34,6 +43,8 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
   if (!service) notFound();
 
   const ctaHref = service.slug === "social" ? "/free-audit" : "/contact";
+  const seo = serviceSeo[service.slug];
+  const otherServices = services.filter((s) => s.slug !== service.slug);
 
   return (
     <>
@@ -45,6 +56,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
             { name: "Services", path: "/services" },
             { name: service.navLabel, path: `/services/${service.slug}` },
           ]),
+          ...(seo ? [faqJsonLd(seo.faqs)] : []),
         ]}
       />
       <section className="relative overflow-hidden bg-gradient-to-b from-ink to-brand-950 text-white">
@@ -151,6 +163,51 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {seo && (
+        <section className="border-t border-border bg-card py-20 md:py-24">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6">
+            <ScrollReveal>
+              <h2 className="font-display text-display-lg font-bold">
+                Common questions
+              </h2>
+            </ScrollReveal>
+            <Accordion type="single" collapsible className="mt-6">
+              {seo.faqs.map((faq) => (
+                <AccordionItem key={faq.question} value={faq.question}>
+                  <AccordionTrigger className="text-left font-display text-base font-semibold">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="leading-relaxed text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+      )}
+
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-600 dark:text-brand-400">
+          Explore our other services
+        </p>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {otherServices.map((other) => (
+            <Link
+              key={other.slug}
+              href={`/services/${other.slug}`}
+              className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-5 py-4 text-sm font-medium transition-colors hover:border-brand-400 focus-visible:outline-2 focus-visible:outline-ring"
+            >
+              {other.navLabel}
+              <ArrowRightIcon
+                aria-hidden="true"
+                className="size-4 text-brand-600 transition-transform group-hover:translate-x-1 motion-reduce:transition-none dark:text-brand-400"
+              />
+            </Link>
+          ))}
         </div>
       </section>
 
