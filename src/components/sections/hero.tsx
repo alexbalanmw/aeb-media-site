@@ -31,13 +31,14 @@ export function Hero() {
       <div className="scroll-exit relative mx-auto grid max-w-6xl gap-14 px-4 pb-20 pt-20 sm:px-6 md:pb-28 md:pt-28 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-7">
           {/* No entrance animation on the H1 — it's the LCP element and any
-              animation (even transform-only) re-emits its LCP candidate late. */}
-          <h1 className="font-display text-display-2xl font-bold text-balance">
-            Your competitors{" "}
-            <span className="bg-gradient-to-r from-brand-300 via-brand-400 to-ember-400 bg-clip-text text-transparent">
+              animation (even transform-only) re-emits its LCP candidate late.
+              Three deliberate lines instead of free wrapping. */}
+          <h1 className="font-display text-display-2xl font-bold">
+            <span className="block">Your competitors</span>
+            <span className="block bg-gradient-to-r from-brand-300 via-brand-400 to-ember-400 bg-clip-text text-transparent">
               are getting seen.
-            </span>{" "}
-            Are you?
+            </span>
+            <span className="block">Are you?</span>
           </h1>
           <p
             className={cn(entrance, "mt-7 max-w-xl text-lede text-white/70")}
@@ -73,7 +74,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="lg:col-span-5 lg:self-end">
+        <div className="lg:col-span-5 lg:self-center">
           <div
             className={cn(
               entrance,

@@ -82,8 +82,8 @@
   --color-paper: #faf8f5;
 
   /* Fluid display type scale */
-  --text-display-2xl: clamp(2.75rem, 2vw + 6.5vmin, 6rem);
-  --text-display-2xl--line-height: 0.98;
+  --text-display-2xl: clamp(2.5rem, 1.5vw + 5vmin, 4.75rem);
+  --text-display-2xl--line-height: 1.04;
   --text-display-2xl--letter-spacing: -0.03em;
   --text-display-xl: clamp(2.25rem, 1.5vw + 5vmin, 4.5rem);
   --text-display-xl--line-height: 1.02;
